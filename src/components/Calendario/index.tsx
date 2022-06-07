@@ -51,6 +51,8 @@ const Calendario: React.FC = () => {
       console.log(eventos);
     };
 
+  console.log(eventosKalend);
+
   return (
     <div className={style.Container}>
       <Kalend
