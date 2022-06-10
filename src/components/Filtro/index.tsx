@@ -1,16 +1,16 @@
 import React, { useState } from 'react';
-import { useSetRecoilState } from 'recoil';
 import { IFiltroEventos } from '../../interfaces/IFiltroEventos';
-import { filtroDeEventos } from '../../state/atom';
+import { useFiltro } from '../../state/hooks/useFiltro';
 import style from './Filtro.module.scss';
 
+//Foi utilizado o filtro por datas e por estado sendo que o estado foi só um desafio do curso mesmo, ele não foi implementado no curso e a lógica do filtro foi o Hook useFiltro que é responsável por fazer a chamada dos métodos do Recoil.
 const Filtro: React.FC = () => {
 
   const [data, setData] = useState('');
   const [estado, setEstado] = useState('');
-  const setFiltroEventos = useSetRecoilState(filtroDeEventos);
+  const setFiltroEventos = useFiltro();
 
-
+  //Esse formulário é onde o usuário preenche a data e seleciona qual o estado do evento que ele quer filtrar, depois que clica no botão é chamada essa função e no final executa o nosso hook enviando o objeto filtro.
   const submeterForm = (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     const filtro: IFiltroEventos = {}
@@ -27,7 +27,8 @@ const Filtro: React.FC = () => {
   }
 
   return (<form className={style.Filtro} onSubmit={submeterForm}>
-    <h3 className={style.titulo}>Filtrar por data</h3>
+    <h2 className={style.titulo}>Filtrar por</h2>
+    <h3 className={style.titulo}>Data:</h3>
     <input
       type="date"
       name="data"
@@ -36,7 +37,7 @@ const Filtro: React.FC = () => {
       placeholder="Por data"
       value={data} />
 
-    <h3 className={style.titulo}>Filtrar por estado</h3>
+    <h3 className={style.titulo}>Estado:</h3>
 
     <div className={style.inputEstado}>
       <input
@@ -44,7 +45,9 @@ const Filtro: React.FC = () => {
         name="estado"
         id="estadoCompleto"
         value="completo"
-        onChange={evento => setEstado(evento.target.value)} />
+        onChange={evento => setEstado(evento.target.value)} 
+        required
+        />
       <label htmlFor="#estadoCompleto">Completo</label>
     </div>
     <div className={style.inputEstado}>
@@ -53,7 +56,9 @@ const Filtro: React.FC = () => {
         name="estado"
         id="estadoIncompleto"
         onChange={evento => setEstado(evento.target.value)}
-        value="incompleto" />
+        value="incompleto" 
+        required
+        />
       <label htmlFor="#estadoIncompleto">Incompleto</label>
     </div>
     <div className={style.inputEstado}>
@@ -62,7 +67,9 @@ const Filtro: React.FC = () => {
         name="estado"
         id="nenhumEstado"
         onChange={evento => setEstado(evento.target.value)}
-        value={undefined} />
+        value="todos"
+        required 
+        />
       <label htmlFor="#nenhumEstado">Todos</label>
     </div>
 

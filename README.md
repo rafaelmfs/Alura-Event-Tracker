@@ -1,46 +1,19 @@
-# Getting Started with Create React App
+# Alura Event Tracker
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## 🔨 Funcionalidades do projeto
 
-In the project directory, you can run:
+O Alura Event Tracker é um projeto onde o usuário pode cadastrar um evento e visualizá-lo no calendário e na lista em baixo da parte de filtros, ele pode também filtrar os eventos por data e por estado que seriam os concluídos ou não, inicialmente o projeto não utilizava estado global sendo necessário passar varias props para componentes filhos e esses componentes filhos passariam para os filhos causando o efeito de prop drilling e para resolver foi utilizado a biblioteca RecoilJS para criar um estado global onde todos os componentes poderiam ter acesso a esses dados.
 
-### `npm start`
+## ✔️ Técnicas e tecnologias utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- `React`
+- `React Hooks`
+- `TypeScript`
+- `Biblioteca Kalendar`
+- `RecoilJS`
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 🛠️ Abrir e rodar o projeto
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Para abrir e rodar o projeto, execute npm i para instalar as dependências e npm start para inicar o projeto.
+Será necessário rodar o comando `json-server --watch db.json -p 8080` no terminal para utilizar uma ferramenta que simula uma API REST de inicio para conseguir rodar a aplicação.

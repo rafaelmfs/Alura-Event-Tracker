@@ -6,6 +6,7 @@ import Kalend, { CalendarEvent, CalendarView, OnEventDragFinish } from 'kalend'
 import 'kalend/dist/styles/index.css';
 import { useAtualizaEvento } from '../../state/hooks/useAtualizaEvento';
 import { useListaDeEventos } from '../../state/hooks/useListaDeEventos';
+import { IEvento } from '../../interfaces/IEvento';
 
 interface IKalendEvento {
   id?: string
@@ -36,22 +37,23 @@ const Calendario: React.FC = () => {
     })
   })
 
+  //Esse é o método que atualiza o evento quando o usuário utiliza o click e arraste para mudar a data do evento.
+  //Basicamente esse é um evento da própria biblioteca e o que nos fizemos aqui foi somente criar um novo evento e enviar ele atualizado para a lista.
   const onEventDragFinish: OnEventDragFinish = (
     kalendEventoInalterado: CalendarEvent,
     KalendEventoAtualizado: CalendarEvent,
 
     ) => {
-      const evento = eventos.find(evnt => evnt.descricao === KalendEventoAtualizado.summary);
-      if(evento){
-        const eventoAtualizado = { ...evento};
-        eventoAtualizado.inicio = new Date(KalendEventoAtualizado.startAt);
-        eventoAtualizado.fim = new Date(KalendEventoAtualizado.endAt);
-        atualizarEvento(eventoAtualizado);
-      }
-      console.log(eventos);
-    };
+      console.log('Cheguei aqui...')
+      const evento = {
+        id: KalendEventoAtualizado.id,
+        descricao: KalendEventoAtualizado.summary,
+        inicio: new Date(KalendEventoAtualizado.startAt),
+        fim: new Date(KalendEventoAtualizado.endAt)
+      } as IEvento;
+      atualizarEvento(evento);
 
-  console.log(eventosKalend);
+    };
 
   return (
     <div className={style.Container}>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useAdicionarEvento } from '../../state/hooks/useAdicionarEvento';
 import style from './Formulario.module.scss';
 
+//Esse é o componente responsável pelas informações que são preenchidas na hora de criar um novo evento
 const Formulario: React.FC = () => {
   const [descricao, setDescricao] = useState('')
   const [dataInicio, setDataInicio] = useState('')
@@ -16,6 +17,8 @@ const Formulario: React.FC = () => {
     return new Date(`${dataString}T${hora}`)
   }
 
+  //Essa função é executada depois que o usuário clicar no botão salvar e ela faz a tentativa de criar o evento, basicamente envia um objeto com as informações do form para o hook responsável por criar o evento.
+  //Faz a tentativa porque tem uma regra que não é possível criar um evento com uma data retroativa, e se der erro ele captura no catch e exibe um alert.
   const submeterForm = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
     try {

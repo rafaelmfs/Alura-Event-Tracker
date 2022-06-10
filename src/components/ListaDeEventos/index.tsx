@@ -3,6 +3,7 @@ import Evento from '../Evento';
 import Filtro from '../Filtro';
 import style from './ListaDeEventos.module.scss';
 
+//Aqui é onde busca os eventos e é executado nosso hook que fica responsável por buscar a lista no estado global.
 const ListaDeEventos: React.FC = () => {
 
   const eventos = useListaDeEventos();

@@ -8,6 +8,7 @@ import { RecoilRoot } from 'recoil';
 import { DebugObserver } from './components/DebugObserver';
 
 function App() {
+  //Aqui é o componente principal onde tinha vários estados e funções que eram passadas adiante via props para os componentes, com o Recoil foi possível apagar tudo e deixar só o necessário.
   return (
     <RecoilRoot>
       <DebugObserver />

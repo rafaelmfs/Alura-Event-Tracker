@@ -6,6 +6,7 @@ import EventoCheckbox from './EventoCheckbox';
 
 const Evento: React.FC<{ evento: IEvento}> = ({ evento }) => {
   
+  //É utilizado um hook que nós criamos para excluir o evento, esse hook é que fica responsável pela implementação da exclusão.
   const excluir = useDeletarEvento();
 
   const estilos = [
