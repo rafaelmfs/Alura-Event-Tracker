@@ -1,5 +1,7 @@
 # Alura Event Tracker
 
+![Captura de tela de 2022-06-09 22-48-19](https://user-images.githubusercontent.com/80429145/172973920-da06f5fa-57b3-4440-a659-b09a1612c12f.png)
+
 
 ## 🔨 Funcionalidades do projeto
 
