@@ -44,7 +44,6 @@ const Calendario: React.FC = () => {
     KalendEventoAtualizado: CalendarEvent,
 
     ) => {
-      console.log('Cheguei aqui...')
       const evento = {
         id: KalendEventoAtualizado.id,
         descricao: KalendEventoAtualizado.summary,
